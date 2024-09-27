@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Fri, 27 Sep 2024 13:43:05 +0800</lastBuildDate><atom:link href="https://samliee.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Test</title>
-        <link>https://samliee.github.io/blog/post/test/</link>
+        <link>https://samliee.github.io/blog/post/%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%99%A8/</link>
         <pubDate>Fri, 27 Sep 2024 13:43:05 +0800</pubDate>
         
-        <guid>https://samliee.github.io/blog/post/test/</guid>
+        <guid>https://samliee.github.io/blog/post/%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%99%A8/</guid>
         <description>&lt;h2 id=&#34;习题21-简单计算器-20分&#34;&gt;习题2.1 简单计算器 (20分)
 &lt;/h2&gt;&lt;p&gt;模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;输入格式:&lt;/strong&gt;

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="习题2.1 简单计算器 (20分)\r模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。\n输入格式: 输入在一行中给出一个四则运算算式，没有空格，且至少有一个操作数。遇等号”=”说明输入结束。\n输出格式: 在一行中输出算式的运算结果，或者如果除法分母为0或有非法运算符，则输出错误信息“ERROR”。\n输入样例:\n1+2*10-10/2= 输出样例:\n10 这道题不要求判断运算符的优先级，不用栈就可以完成任务。将第一个数字和第一个操作符特殊化，这样后面的运算就可以用循环实现。\n#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;ctype.h&gt; int main( int argc , char **argv ) { int a; int i, j; int result; char op; char exp[100]; char n[10];\t//用于单独提取操作数 scanf(&#34;%[^=]&#34;, exp);\t//从流中读入文本, 当读入=时结束并吐出= /* ** 求result的初始值 */ for( i = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[i] = exp[i]; }else{ break; } } n[i] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;result );\t//将字符串n转换为整型数据存储到result中 op = exp[i];\t//取第一个操作符 /* ** 求result和操作符的初始值 */ for( i++, j = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[ j++ ] = exp[i]; if( exp[ i+1 ] != &#39;\\0&#39; ){\t//当读到最后一个操作数不continue, 进入计算 continue; } } n[j] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;a ); j = 0; switch( op ){\t//操作符op是当前操作符的前一个 case &#39;+&#39;: result += a; break; case &#39;-&#39;: result -= a; break; case &#39;*&#39;: result *= a; break; case &#39;/&#39;: if( 0 == a ){ printf(&#34;ERROR&#34;); exit(0); }else{ result /= a; } break; default: printf(&#34;ERROR&#34;); exit(0); } op = exp[i]; } printf(&#34;%d&#34;, result); return 0; } ">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="习题2.1 简单计算器 (20分) 模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。\n输入格式: 输入在一行中给出一个四则运算算式，没有空格，且至少有一个操作数。遇等号”=”说明输入结束。\n输出格式: 在一行中输出算式的运算结果，或者如果除法分母为0或有非法运算符，则输出错误信息“ERROR”。\n输入样例:\n1+2*10-10/2= 输出样例:\n10 这道题不要求判断运算符的优先级，不用栈就可以完成任务。将第一个数字和第一个操作符特殊化，这样后面的运算就可以用循环实现。\n#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;ctype.h&gt; int main( int argc , char **argv ) { int a; int i, j; int result; char op; char exp[100]; char n[10];\t//用于单独提取操作数 scanf(&#34;%[^=]&#34;, exp);\t//从流中读入文本, 当读入=时结束并吐出= /* ** 求result的初始值 */ for( i = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[i] = exp[i]; }else{ break; } } n[i] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;result );\t//将字符串n转换为整型数据存储到result中 op = exp[i];\t//取第一个操作符 /* ** 求result和操作符的初始值 */ for( i++, j = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[ j++ ] = exp[i]; if( exp[ i+1 ] != &#39;\\0&#39; ){\t//当读到最后一个操作数不continue, 进入计算 continue; } } n[j] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;a ); j = 0; switch( op ){\t//操作符op是当前操作符的前一个 case &#39;+&#39;: result += a; break; case &#39;-&#39;: result -= a; break; case &#39;*&#39;: result *= a; break; case &#39;/&#39;: if( 0 == a ){ printf(&#34;ERROR&#34;); exit(0); }else{ result /= a; } break; default: printf(&#34;ERROR&#34;); exit(0); } op = exp[i]; } printf(&#34;%d&#34;, result); return 0; } ">
 <title>Test</title>
 
-<link rel='canonical' href='http://localhost:1313/post/test/'>
+<link rel='canonical' href='https://samliee.github.io/blog/post/%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%99%A8/'>
 
-<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Test">
-<meta property='og:description' content="习题2.1 简单计算器 (20分)\r模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。\n输入格式: 输入在一行中给出一个四则运算算式，没有空格，且至少有一个操作数。遇等号”=”说明输入结束。\n输出格式: 在一行中输出算式的运算结果，或者如果除法分母为0或有非法运算符，则输出错误信息“ERROR”。\n输入样例:\n1+2*10-10/2= 输出样例:\n10 这道题不要求判断运算符的优先级，不用栈就可以完成任务。将第一个数字和第一个操作符特殊化，这样后面的运算就可以用循环实现。\n#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;ctype.h&gt; int main( int argc , char **argv ) { int a; int i, j; int result; char op; char exp[100]; char n[10];\t//用于单独提取操作数 scanf(&#34;%[^=]&#34;, exp);\t//从流中读入文本, 当读入=时结束并吐出= /* ** 求result的初始值 */ for( i = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[i] = exp[i]; }else{ break; } } n[i] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;result );\t//将字符串n转换为整型数据存储到result中 op = exp[i];\t//取第一个操作符 /* ** 求result和操作符的初始值 */ for( i++, j = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[ j++ ] = exp[i]; if( exp[ i+1 ] != &#39;\\0&#39; ){\t//当读到最后一个操作数不continue, 进入计算 continue; } } n[j] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;a ); j = 0; switch( op ){\t//操作符op是当前操作符的前一个 case &#39;+&#39;: result += a; break; case &#39;-&#39;: result -= a; break; case &#39;*&#39;: result *= a; break; case &#39;/&#39;: if( 0 == a ){ printf(&#34;ERROR&#34;); exit(0); }else{ result /= a; } break; default: printf(&#34;ERROR&#34;); exit(0); } op = exp[i]; } printf(&#34;%d&#34;, result); return 0; } ">
-<meta property='og:url' content='http://localhost:1313/post/test/'>
-<meta property='og:site_name' content='My New Hugo Site'>
+<link rel="stylesheet" href="/blog/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Test">
+<meta property='og:description' content="习题2.1 简单计算器 (20分) 模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。\n输入格式: 输入在一行中给出一个四则运算算式，没有空格，且至少有一个操作数。遇等号”=”说明输入结束。\n输出格式: 在一行中输出算式的运算结果，或者如果除法分母为0或有非法运算符，则输出错误信息“ERROR”。\n输入样例:\n1+2*10-10/2= 输出样例:\n10 这道题不要求判断运算符的优先级，不用栈就可以完成任务。将第一个数字和第一个操作符特殊化，这样后面的运算就可以用循环实现。\n#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;ctype.h&gt; int main( int argc , char **argv ) { int a; int i, j; int result; char op; char exp[100]; char n[10];\t//用于单独提取操作数 scanf(&#34;%[^=]&#34;, exp);\t//从流中读入文本, 当读入=时结束并吐出= /* ** 求result的初始值 */ for( i = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[i] = exp[i]; }else{ break; } } n[i] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;result );\t//将字符串n转换为整型数据存储到result中 op = exp[i];\t//取第一个操作符 /* ** 求result和操作符的初始值 */ for( i++, j = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[ j++ ] = exp[i]; if( exp[ i+1 ] != &#39;\\0&#39; ){\t//当读到最后一个操作数不continue, 进入计算 continue; } } n[j] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;a ); j = 0; switch( op ){\t//操作符op是当前操作符的前一个 case &#39;+&#39;: result += a; break; case &#39;-&#39;: result -= a; break; case &#39;*&#39;: result *= a; break; case &#39;/&#39;: if( 0 == a ){ printf(&#34;ERROR&#34;); exit(0); }else{ result /= a; } break; default: printf(&#34;ERROR&#34;); exit(0); } op = exp[i]; } printf(&#34;%d&#34;, result); return 0; } ">
+<meta property='og:url' content='https://samliee.github.io/blog/post/%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%99%A8/'>
+<meta property='og:site_name' content='samliee'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-09-27T13:43:05&#43;08:00'/><meta property='article:modified_time' content='2024-09-27T13:43:05&#43;08:00'/>
 <meta name="twitter:title" content="Test">
-<meta name="twitter:description" content="习题2.1 简单计算器 (20分)\r模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。\n输入格式: 输入在一行中给出一个四则运算算式，没有空格，且至少有一个操作数。遇等号”=”说明输入结束。\n输出格式: 在一行中输出算式的运算结果，或者如果除法分母为0或有非法运算符，则输出错误信息“ERROR”。\n输入样例:\n1+2*10-10/2= 输出样例:\n10 这道题不要求判断运算符的优先级，不用栈就可以完成任务。将第一个数字和第一个操作符特殊化，这样后面的运算就可以用循环实现。\n#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;ctype.h&gt; int main( int argc , char **argv ) { int a; int i, j; int result; char op; char exp[100]; char n[10];\t//用于单独提取操作数 scanf(&#34;%[^=]&#34;, exp);\t//从流中读入文本, 当读入=时结束并吐出= /* ** 求result的初始值 */ for( i = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[i] = exp[i]; }else{ break; } } n[i] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;result );\t//将字符串n转换为整型数据存储到result中 op = exp[i];\t//取第一个操作符 /* ** 求result和操作符的初始值 */ for( i++, j = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[ j++ ] = exp[i]; if( exp[ i+1 ] != &#39;\\0&#39; ){\t//当读到最后一个操作数不continue, 进入计算 continue; } } n[j] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;a ); j = 0; switch( op ){\t//操作符op是当前操作符的前一个 case &#39;+&#39;: result += a; break; case &#39;-&#39;: result -= a; break; case &#39;*&#39;: result *= a; break; case &#39;/&#39;: if( 0 == a ){ printf(&#34;ERROR&#34;); exit(0); }else{ result /= a; } break; default: printf(&#34;ERROR&#34;); exit(0); } op = exp[i]; } printf(&#34;%d&#34;, result); return 0; } ">
+<meta name="twitter:description" content="习题2.1 简单计算器 (20分) 模拟简单运算器的工作。假设计算器只能进行加减乘除运算，运算数和结果都是整数，四种运算符的优先级相同，按从左到右的顺序计算。\n输入格式: 输入在一行中给出一个四则运算算式，没有空格，且至少有一个操作数。遇等号”=”说明输入结束。\n输出格式: 在一行中输出算式的运算结果，或者如果除法分母为0或有非法运算符，则输出错误信息“ERROR”。\n输入样例:\n1+2*10-10/2= 输出样例:\n10 这道题不要求判断运算符的优先级，不用栈就可以完成任务。将第一个数字和第一个操作符特殊化，这样后面的运算就可以用循环实现。\n#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;ctype.h&gt; int main( int argc , char **argv ) { int a; int i, j; int result; char op; char exp[100]; char n[10];\t//用于单独提取操作数 scanf(&#34;%[^=]&#34;, exp);\t//从流中读入文本, 当读入=时结束并吐出= /* ** 求result的初始值 */ for( i = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[i] = exp[i]; }else{ break; } } n[i] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;result );\t//将字符串n转换为整型数据存储到result中 op = exp[i];\t//取第一个操作符 /* ** 求result和操作符的初始值 */ for( i++, j = 0; exp[i] != &#39;\\0&#39;; i++ ){ if( isdigit( exp[i] ) ){ n[ j++ ] = exp[i]; if( exp[ i+1 ] != &#39;\\0&#39; ){\t//当读到最后一个操作数不continue, 进入计算 continue; } } n[j] = &#39;\\0&#39;; sscanf( n, &#34;%d&#34;, &amp;a ); j = 0; switch( op ){\t//操作符op是当前操作符的前一个 case &#39;+&#39;: result += a; break; case &#39;-&#39;: result -= a; break; case &#39;*&#39;: result *= a; break; case &#39;/&#39;: if( 0 == a ){ printf(&#34;ERROR&#34;); exit(0); }else{ result /= a; } break; default: printf(&#34;ERROR&#34;); exit(0); } op = exp[i]; } printf(&#34;%d&#34;, result); return 0; } ">
     </head>
     <body class="
     article-page
@@ -50,13 +50,13 @@
         
             
             <figure class="site-avatar">
-                <a href="/">
+                <a href="/blog/">
                 
                     
                     
                     
                         
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                        <img src="/blog/img/avatar_hu13739649187745961479.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -67,7 +67,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">My New Hugo Site</a></h1>
+            <h1 class="site-name"><a href="/blog">samliee</a></h1>
             <h2 class="site-description"></h2>
         </div>
     </header><ol class="menu" id="main-menu">
@@ -113,7 +113,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/post/test/">Test</a>
+            <a href="/blog/post/%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%99%A8/">Test</a>
         </h2>
     
         
@@ -272,7 +272,7 @@
     <section class="copyright">
         &copy; 
         
-        2024 My New Hugo Site
+        2024 samliee
     </section>
     
     <section class="powerby">
@@ -366,7 +366,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/blog/ts/main.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
