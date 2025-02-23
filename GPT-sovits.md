@@ -15,6 +15,8 @@ Select Compute Platform -> Rocm
 
 ## launch.sh
 
+From https://zhuanlan.zhihu.com/p/681958706
+
 ```bash
 #!/bin/sh
 
